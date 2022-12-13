@@ -1,0 +1,3 @@
+table:
+  name: state
+  schema: xgraph_psys
