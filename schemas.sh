@@ -16,6 +16,5 @@ alembic -n default -c alembic/alembic.ini upgrade head
 
 # Update hasura/graphql metadata to track all tables/views
 cd hasura_project
-mv config.yaml{,.template}
 awk -v ip=$HASURA_IP "/HASURA_IP/{sub(/HASURA_IP/, ip)};{print}" config.yaml.template > config.yaml
 hasura metadata apply
