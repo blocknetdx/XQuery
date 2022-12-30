@@ -23,14 +23,14 @@ import xquery.db
 import xquery.db.orm as orm
 from xquery.config import CONFIG as C
 dex = os.getenv("DEX", '')
-if dex == 'PANGOLIN':
+if dex == 'AVAX_PANGOLIN':
     from xquery.event import (
         EventFilterExchangePangolin as EventFilterExchange,
         EventIndexerExchangePangolin as EventIndexerExchange,
         EventProcessorExchangePangolin as EventProcessorExchange,
     )
     from xquery.contract import png_factory as factory
-elif dex == 'PEGASYS':
+elif dex == 'NEVM_PEGASYS':
     from xquery.event import (
         EventFilterExchangePegasys as EventFilterExchange,
         EventIndexerExchangePegasys as EventIndexerExchange,
