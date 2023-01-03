@@ -1,0 +1,3 @@
+table:
+  name: exchange_day_data
+  schema: xgraph_psys

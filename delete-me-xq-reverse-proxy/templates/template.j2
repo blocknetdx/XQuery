@@ -1,0 +1,36 @@
+load_module /usr/lib/nginx/modules/ndk_http_module.so;
+load_module /usr/lib/nginx/modules/ngx_http_lua_module.so;
+pcre_jit on;
+ 
+worker_processes 1;
+daemon off;
+  
+events { worker_connections 1024; }
+
+http {
+
+    keepalive_timeout  300;
+    proxy_read_timeout 300;
+    proxy_send_timeout 300;
+    proxy_connect_timeout 300;
+
+    server {
+        listen {{ port }};
+        root /app/manager/;
+
+        location /hasura/ {
+            proxy_pass         http://{{ hasura_ip}}:{{hasura_port}}/;
+            proxy_redirect     off;
+        }
+        
+        location {{ endpoint }} {
+            proxy_pass         http://{{ hasura_ip}}:{{hasura_port}}/v1/graphql;
+            proxy_redirect     off;
+        }
+
+        location /help {
+            alias /app/manager/help.txt;
+        }
+
+    }
+}

@@ -1,0 +1,3 @@
+table:
+  name: liquidity_position_snapshot
+  schema: xgraph_png

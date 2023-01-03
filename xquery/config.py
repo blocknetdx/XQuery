@@ -20,9 +20,9 @@ DEFAULT = {
     "DB_DRIVER": "postgresql",
     "DB_HOST": os.getenv("DB_HOST", "localhost"),
     "DB_PORT": os.getenv("DB_PORT", 5432),
-    "DB_USERNAME": os.getenv("DB_USERNAME", "root"),
+    "DB_USERNAME": os.getenv("DB_USERNAME", "postgres"),
     "DB_PASSWORD": os.getenv("DB_PASSWORD", "password"),
-    "DB_DATABASE": os.getenv("DB_DATABASE", "debug"),
+    "DB_DATABASE": os.getenv("DB_DATABASE", "postgres"),
     "DB_SCHEMA": os.getenv("DB_SCHEMA", "public"),
 
     "DB_DEBUG": False,
